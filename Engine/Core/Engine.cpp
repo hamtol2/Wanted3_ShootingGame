@@ -160,6 +160,16 @@ Engine& Engine::Get()
 	return *instance;
 }
 
+int Engine::Width() const
+{
+	return settings.width;
+}
+
+int Engine::Height() const
+{
+	return settings.height;
+}
+
 void Engine::BeginPlay()
 {
 	if (mainLevel)
