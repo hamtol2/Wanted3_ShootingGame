@@ -37,6 +37,24 @@ bool Vector2::operator==(const Vector2& other) const
     return x == other.x && y == other.y;
 }
 
+Vector2::operator COORD()
+{
+    COORD coord;
+    coord.X = (short)x;
+    coord.Y = (short)y;
+
+    return coord;
+}
+
+Vector2::operator COORD() const
+{
+    COORD coord;
+    coord.X = (short)x;
+    coord.Y = (short)y;
+
+    return coord;
+}
+
 const char* Vector2::ToString()
 {
     // "(20, 30)" -> 문자열 조합.
