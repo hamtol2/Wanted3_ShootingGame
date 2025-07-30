@@ -4,6 +4,8 @@
 #include "Level/Level.h"
 #include "Engine.h"
 
+#include "Actor/PlayerBullet.h"
+
 #include <Windows.h>
 
 Player::Player()
@@ -48,11 +50,29 @@ void Player::Tick(float deltaTime)
 		position.x += 1;
 		SetPosition(position);
 	}
+
+	//if (Input::Get().GetKey(VK_UP))
+	//{
+	//	Vector2 position = Position();
+	//	position.y -= 1;
+	//	SetPosition(position);
+	//}
+
+	//if (Input::Get().GetKey(VK_DOWN))
+	//{
+	//	Vector2 position = Position();
+	//	position.y += 1;
+	//	SetPosition(position);
+	//}
 }
 
 void Player::Fire()
 {
-	// Todo: 플레이어 탄약 객체 생성해야함.
+	// 플레이어 탄약 객체 생성.
+	// x: 플레이어의 가운데.
+	// y: 플레이어에서 한칸 위.
+	Vector2 bulletPosition(position.x + width / 2, position.y - 1);
+	owner->AddActor(new PlayerBullet(bulletPosition));
 }
 
 void Player::FireInterval(float deltaTime)
