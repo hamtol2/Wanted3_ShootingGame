@@ -100,9 +100,9 @@ void Engine::Run()
 			Render();
 
 			// 제목에 FPS 출력.
-			char title[50] = { };
-			sprintf_s(title, 50, "FPS: %f", (1.0f / deltaTime));
-			SetConsoleTitleA(title);
+			//char title[50] = { };
+			//sprintf_s(title, 50, "FPS: %f", (1.0f / deltaTime));
+			//SetConsoleTitleA(title);
 
 			//Utils::SetConsolePosition({ 30, 0 });
 			//std::cout << "FPS: " << (1.0f / deltaTime);
@@ -112,6 +112,12 @@ void Engine::Run()
 
 			// 현재 프레임의 입력을 기록.
 			input.SavePreviouseKeyStates();
+
+			// 이전 프레임에 추가 및 삭제 요청된 액터 처리.
+			if (mainLevel)
+			{
+				mainLevel->ProcessAddAndDestroyActors();
+			}
 		}
 	}
 

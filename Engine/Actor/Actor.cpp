@@ -1,6 +1,7 @@
 #include "Actor.h"
 #include "Utils/Utils.h"
 #include "Engine.h"
+#include "Level/Level.h"
 
 #include <Windows.h>
 #include <iostream>
@@ -98,6 +99,9 @@ void Actor::Destroy()
 {
 	// 삭제 요청 되었다고 설정.
 	isExpired = true;
+
+	// 레벨에 삭제 요청.
+	owner->DestroyActor(this);
 }
 
 void Actor::QuitGame()
