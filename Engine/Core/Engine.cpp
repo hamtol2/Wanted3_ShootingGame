@@ -102,14 +102,6 @@ void Engine::Run()
 			Tick(deltaTime);
 			Render();
 
-			// 제목에 FPS 출력.
-			//char title[50] = { };
-			//sprintf_s(title, 50, "FPS: %f", (1.0f / deltaTime));
-			//SetConsoleTitleA(title);
-
-			//Utils::SetConsolePosition({ 30, 0 });
-			//std::cout << "FPS: " << (1.0f / deltaTime);
-
 			// 시간 업데이트.
 			previousTime = currentTime;
 

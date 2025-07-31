@@ -48,6 +48,9 @@ public:
 	void SetOwner(Level* newOwner);
 	Level* GetOwner();
 
+	// 충돌 확인 요청 함수 (간단한 AABB 로직).
+	bool TestIntersect(const Actor* const other);
+
 	// 객체 삭제 함수.
 	void Destroy();
 
