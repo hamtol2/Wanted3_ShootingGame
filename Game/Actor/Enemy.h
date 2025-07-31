@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Actor/Actor.h"
+#include "Utils/Timer.h"
 
 /*
 * 이동 패턴 (좌우).
@@ -36,10 +37,13 @@ private:
 	// 이동 빠르기.
 	float moveSpeed = 5.0f;
 
+	// 타이머.
+	Timer timer;
+
 	// 타이머 계산을 위한 변수.
 	// 경과 시간 계산 변수.
-	float elapsedTime = 0.0f;
+	//float elapsedTime = 0.0f;
 
 	// 목표 시간 값. (setTime, targetTime).
-	float targetTime = 0.0f;
+	//float targetTime = 0.0f;
 };

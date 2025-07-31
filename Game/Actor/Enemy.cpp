@@ -3,6 +3,7 @@
 #include "Engine.h"
 #include "Level/Level.h"
 #include "Actor/EnemyBullet.h"
+//using namespace Utils;
 
 Enemy::Enemy(const char* image, int yPosition)
 	: Actor(image)
@@ -29,7 +30,7 @@ Enemy::Enemy(const char* image, int yPosition)
 	position.y = yPosition;
 
 	// 발사 간격 시간 설정.
-	targetTime = Utils::RandomFloat(1.0f, 3.0f);
+	timer.SetTargetTime(Utils::RandomFloat(1.0f, 3.0f));
 }
 
 void Enemy::Tick(float deltaTime)
@@ -54,10 +55,8 @@ void Enemy::Tick(float deltaTime)
 	SetPosition(Vector2((int)xPosition, position.y));
 
 	// 시간 잰 후에 탄약 발사.
-	elapsedTime += deltaTime;
-
-	// 발사 간격 시간만큼 경과했는지 확인.
-	if (elapsedTime < targetTime)
+	timer.Tick(deltaTime);
+	if (!timer.IsTimeout())
 	{
 		return;
 	}
@@ -70,6 +69,6 @@ void Enemy::Tick(float deltaTime)
 	);
 
 	// 타이머 변수 정리.
-	elapsedTime = 0.0f;
-	targetTime = Utils::RandomFloat(1.0f, 3.0f);
+	timer.Reset();
+	timer.SetTargetTime(Utils::RandomFloat(1.0f, 3.0f));
 }
