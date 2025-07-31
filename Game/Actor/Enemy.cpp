@@ -1,6 +1,8 @@
 #include "Enemy.h"
 #include "Utils/Utils.h"
 #include "Engine.h"
+#include "Level/Level.h"
+#include "Actor/EnemyBullet.h"
 
 Enemy::Enemy(const char* image, int yPosition)
 	: Actor(image)
@@ -61,7 +63,11 @@ void Enemy::Tick(float deltaTime)
 	}
 
 	// 발사.
-	// Todo: 적 탄약 생성 후 생성 요청 해야 함.
+	// 적 탄약 생성 요청.
+	owner->AddActor(new EnemyBullet(
+		Vector2(position.x + width / 2, position.y + 1),
+		Utils::RandomFloat(10.0f, 20.0f))
+	);
 
 	// 타이머 변수 정리.
 	elapsedTime = 0.0f;
