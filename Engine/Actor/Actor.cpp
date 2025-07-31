@@ -155,6 +155,12 @@ bool Actor::TestIntersect(const Actor* const other)
 
 void Actor::Destroy()
 {
+	// 중복 삭제 방지 처리.
+	if (isExpired)
+	{
+		return;
+	}
+
 	// 삭제 요청 되었다고 설정.
 	isExpired = true;
 
