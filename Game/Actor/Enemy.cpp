@@ -16,7 +16,7 @@ Enemy::Enemy(const char* image, int yPosition)
 	{
 		// 화면 오른쪽 끝에서 생성되도록 위치 / 이동 방향 설정.
 		direction = MoveDirection::Left;
-		xPosition = static_cast<float>(Engine::Get().Width()) - width;
+		xPosition = static_cast<float>(Engine::Get().Width()) - width - 1;
 	}
 	else
 	{

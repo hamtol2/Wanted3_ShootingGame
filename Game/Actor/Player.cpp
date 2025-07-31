@@ -7,6 +7,7 @@
 #include "Actor/PlayerBullet.h"
 
 #include <Windows.h>
+#include <iostream>
 
 Player::Player()
 	: Actor("<<A>>", Color::Red)

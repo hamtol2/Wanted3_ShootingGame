@@ -180,6 +180,7 @@ void GameLevel::ProcessCollisionPlayerAndEnemyBullet()
 
 void GameLevel::PrintMenu()
 {
+	Utils::SetConsoleTextColor(Color::White);
 	static Vector2 position(
 		Engine::Get().Width() + 1, Engine::Get().Height() + 2);
 	Utils::SetConsolePosition(position);
