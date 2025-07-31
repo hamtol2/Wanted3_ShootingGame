@@ -14,7 +14,7 @@ Player::Player()
 {
 	// 시작 위치 (화면의 가운데, 가장 아래쪽).
 	int xPosition = Engine::Get().Width() / 2 - width / 2;
-	int yPosition = Engine::Get().Height() - 2;
+	int yPosition = Engine::Get().Height() - 1;
 	SetPosition(Vector2(xPosition, yPosition));
 }
 
