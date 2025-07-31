@@ -30,6 +30,8 @@ private:
 	void ProcessCollisionPlayerBulletAndEnemy();
 	void ProcessCollisionPlayerAndEnemyBullet();
 
+	void PrintMenu();
+
 private:
 	// 적 생성 시 시간 계산을 위한 타이머.
 	Timer enemySpawnTimer;

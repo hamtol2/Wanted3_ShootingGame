@@ -178,9 +178,22 @@ void GameLevel::ProcessCollisionPlayerAndEnemyBullet()
 	}
 }
 
+void GameLevel::PrintMenu()
+{
+	static Vector2 position(
+		Engine::Get().Width() + 1, Engine::Get().Height() + 2);
+	Utils::SetConsolePosition(position);
+	std::cout << "Move: 좌우 방향키";
+
+	Utils::SetConsolePosition(Vector2(position.x, position.y + 1));
+	std::cout << "Fire: 스페이스";
+}
+
 void GameLevel::Render()
 {
 	super::Render();
+
+	PrintMenu();
 
 	// 게임 종료 시 처리.
 	if (isPlayerDead)

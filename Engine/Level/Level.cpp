@@ -125,7 +125,6 @@ void Level::Render()
 		}
 
 		// 드로우 콜.
-		actor->Render();
 	}
 }
 
