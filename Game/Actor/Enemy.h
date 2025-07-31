@@ -20,7 +20,8 @@ class Enemy : public Actor
 	RTTI_DECLARATIONS(Enemy, Actor)
 
 public:
-	Enemy();
+	// 적 캐릭터가 보여줄 이미지(문자열)와 생성 y위치.
+	Enemy(const char* image = "<-=->", int yPosition = 5);
 
 	virtual void Tick(float deltaTime) override;
 
